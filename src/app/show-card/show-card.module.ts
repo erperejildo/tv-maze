@@ -5,11 +5,11 @@ import { RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { TvCardComponent } from './tv-card.component';
+import { ShowCardComponent } from './show-card.component';
 
 @NgModule({
   imports: [CommonModule, FormsModule, IonicModule, RouterModule],
-  declarations: [TvCardComponent],
-  exports: [TvCardComponent],
+  declarations: [ShowCardComponent],
+  exports: [ShowCardComponent],
 })
-export class TvCardComponentModule {}
+export class ShowCardComponentModule {}

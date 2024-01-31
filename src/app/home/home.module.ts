@@ -5,14 +5,14 @@ import { FormsModule } from '@angular/forms';
 
 import { HomePage } from './home.page';
 import { HomePageRoutingModule } from './home-routing.module';
-import { TvCardComponentModule } from '../tv-card/tv-card.module';
+import { ShowCardComponentModule } from '../show-card/show-card.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    TvCardComponentModule,
+    ShowCardComponentModule,
     HomePageRoutingModule,
   ],
   declarations: [HomePage],

@@ -1,8 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { RefresherCustomEvent } from '@ionic/angular';
-import { TvCardComponent } from '../tv-card/tv-card.component';
-
-import { DataService, Message } from '../services/data.service';
+import { ShowsService } from '../services/shows.service';
+import { catchError, tap, throwError } from 'rxjs';
+import { Show } from '../interfaces/show';
 
 @Component({
   selector: 'app-home',
@@ -10,8 +10,14 @@ import { DataService, Message } from '../services/data.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  private data = inject(DataService);
+  private showsService = inject(ShowsService);
+  shows: Show[] = [];
+
   constructor() {}
+
+  ngOnInit() {
+    this.loadShows();
+  }
 
   refresh(ev: any) {
     setTimeout(() => {
@@ -19,7 +25,19 @@ export class HomePage {
     }, 3000);
   }
 
-  getMessages(): Message[] {
-    return this.data.getMessages();
+  loadShows() {
+    this.showsService
+      .getShowsByPage(1)
+      .pipe(
+        tap((data: Show[]) => {
+          console.log('SHOWS: ', data);
+          this.shows = data;
+        }),
+        catchError((error) => {
+          console.error('Error fetching shows:', error);
+          return throwError(() => new Error('Error fetching shows'));
+        })
+      )
+      .subscribe();
   }
 }

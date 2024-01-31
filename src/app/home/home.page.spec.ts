@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
-import { TvCardComponentModule } from '../tv-card/tv-card.module';
+import { ShowCardComponentModule } from '../show-card/show-card.module';
 
 import { HomePage } from './home.page';
 
@@ -15,7 +15,7 @@ describe('HomePage', () => {
       declarations: [HomePage],
       imports: [
         IonicModule.forRoot(),
-        TvCardComponentModule,
+        ShowCardComponentModule,
         RouterModule.forRoot([]),
       ],
     }).compileComponents();

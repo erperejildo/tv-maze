@@ -11,15 +11,15 @@
 
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large"> TVmaze </ion-title>
+      <ion-title size="large">TVmaze</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <ion-grid>
     <ion-row>
-      <ion-col *ngFor="let message of getMessages()">
-        <app-tv-card [message]="message"></app-tv-card
-      ></ion-col>
+      <ion-col *ngFor="let show of shows">
+        <app-show-card></app-show-card>
+      </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>

@@ -5,17 +5,18 @@ import {
   Input,
 } from '@angular/core';
 import { Platform } from '@ionic/angular';
-import { Message } from '../services/data.service';
+import { Show } from '../interfaces/show';
 
 @Component({
-  selector: 'app-tv-card',
-  templateUrl: './tv-card.component.html',
-  styleUrls: ['./tv-card.component.scss'],
+  selector: 'app-show-card',
+  templateUrl: './show-card.component.html',
+  styleUrls: ['./show-card.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TvCardComponent {
+export class ShowCardComponent {
   private platform = inject(Platform);
-  @Input() message?: Message;
+  @Input() show?: Show;
+
   isIos() {
     return this.platform.is('ios');
   }
