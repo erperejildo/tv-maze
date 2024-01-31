@@ -2,19 +2,19 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
-import { MessageComponent } from './message.component';
+import { TvCardComponent } from './tv-card.component';
 
-describe('MessageComponent', () => {
-  let component: MessageComponent;
-  let fixture: ComponentFixture<MessageComponent>;
+describe('TvCardComponent', () => {
+  let component: TvCardComponent;
+  let fixture: ComponentFixture<TvCardComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [MessageComponent],
-      imports: [IonicModule.forRoot(), RouterModule.forRoot([])]
+      declarations: [TvCardComponent],
+      imports: [IonicModule.forRoot(), RouterModule.forRoot([])],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(MessageComponent);
+    fixture = TestBed.createComponent(TvCardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

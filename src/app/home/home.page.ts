@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { RefresherCustomEvent } from '@ionic/angular';
-import { MessageComponent } from '../message/message.component';
+import { TvCardComponent } from '../tv-card/tv-card.component';
 
 import { DataService, Message } from '../services/data.service';
 
