@@ -18,7 +18,7 @@
   <ion-grid>
     <ion-row>
       <ion-col *ngFor="let show of shows">
-        <app-show-card></app-show-card>
+        <app-show-card [show]="show"></app-show-card>
       </ion-col>
     </ion-row>
   </ion-grid>

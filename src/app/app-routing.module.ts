@@ -8,10 +8,10 @@ const routes: Routes = [
       import('./home/home.module').then((m) => m.HomePageModule),
   },
   {
-    path: 'message/:id',
+    path: 'show/:id',
     loadChildren: () =>
       import('./show-details/show-details.module').then(
-        (m) => m.ViewMessagePageModule
+        (m) => m.ShowDetailsPageModule
       ),
   },
   {

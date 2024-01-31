@@ -6,6 +6,7 @@ import {
 } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { Show } from '../interfaces/show';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-show-card',
@@ -16,8 +17,13 @@ import { Show } from '../interfaces/show';
 export class ShowCardComponent {
   private platform = inject(Platform);
   @Input() show?: Show;
+  constructor(private router: Router) {}
 
   isIos() {
     return this.platform.is('ios');
+  }
+
+  showClicked(id: number) {
+    this.router.navigate(['/show', id]);
   }
 }

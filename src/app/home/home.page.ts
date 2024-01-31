@@ -16,7 +16,7 @@ export class HomePage {
   constructor() {}
 
   ngOnInit() {
-    this.loadShows();
+    this.getShows();
   }
 
   refresh(ev: any) {
@@ -25,16 +25,15 @@ export class HomePage {
     }, 3000);
   }
 
-  loadShows() {
+  getShows() {
     this.showsService
       .getShowsByPage(1)
       .pipe(
         tap((data: Show[]) => {
-          console.log('SHOWS: ', data);
+          console.log(data);
           this.shows = data;
         }),
         catchError((error) => {
-          console.error('Error fetching shows:', error);
           return throwError(() => new Error('Error fetching shows'));
         })
       )

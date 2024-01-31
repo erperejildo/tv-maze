@@ -13,6 +13,11 @@ export class ShowsService {
 
   getShowsByPage(page: number): Observable<Show[]> {
     const url = `${this.apiUrl}/shows?page=${page}`;
-    return this.http.get<any[]>(url);
+    return this.http.get<Show[]>(url);
+  }
+
+  getShowDetailsById(id: number): Observable<Show> {
+    const url = `${this.apiUrl}/shows/${id}`;
+    return this.http.get<Show>(url);
   }
 }
