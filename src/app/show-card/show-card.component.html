@@ -1,8 +1,17 @@
 <ion-card
-  (click)="showClicked(1)"
-  [style.background-image]="'url(' + show.image.medium + ')'"
   *ngIf="show"
+  (click)="showClicked(show.id)"
+  [style.background-image]="'url(' + show.image.medium + ')'"
 >
+  <div
+    *ngIf="show.rating.average"
+    class="rating"
+    [class.good-rating]="show.rating.average >= 7"
+    [class.normal-rating]="show.rating.average >= 5 && show.rating.average < 7"
+    [class.bad-rating]="show.rating.average < 5"
+  >
+    {{ show.rating.average }}
+  </div>
   <ion-card-header>
     <ion-card-title>{{ show.name }}</ion-card-title>
     <ion-card-subtitle>

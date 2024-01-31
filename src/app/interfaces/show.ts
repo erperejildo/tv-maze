@@ -19,17 +19,8 @@ export interface Show {
     average: number;
   };
   weight: number;
-  network: {
-    id: number;
-    name: string;
-    country: {
-      name: string;
-      code: string;
-      timezone: string;
-    };
-    officialSite: string;
-  };
-  webChannel: any;
+  network: Country | null;
+  webChannel: Country | null;
   dvdCountry: any;
   externals: {
     tvrage: number;
@@ -50,4 +41,15 @@ export interface Show {
       href: string;
     };
   };
+}
+
+export interface Country {
+  id: number;
+  name: string;
+  country: {
+    name: string;
+    code: string;
+    timezone: string;
+  };
+  officialSite: string;
 }
