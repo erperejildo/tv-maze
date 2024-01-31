@@ -1,0 +1,8 @@
+{
+  "name": "TVmaze",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "e122e700"
+}
