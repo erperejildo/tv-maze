@@ -21,9 +21,24 @@
   flex-wrap: nowrap;
   overflow-x: auto;
   overflow-y: hidden;
+  padding-bottom: var(--gap-m);
 
   ion-chip {
     display: table;
+  }
+}
+
+.info:not(:last-child) {
+  margin-right: var(--gap-m);
+}
+
+.show-links {
+  a:not(:last-child) {
+    margin-right: var(--gap-m);
+  }
+
+  img {
+    width: 30px;
   }
 }
 

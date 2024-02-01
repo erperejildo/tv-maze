@@ -18,11 +18,38 @@
 
     <div class="show-right">
       <h1 class="show-title">{{show.name}}</h1>
+      <span class="info">
+        <span *ngFor="let genre of show.genres; let last = last">
+          {{ genre }}<ng-container *ngIf="!last"> -</ng-container>
+        </span>
+      </span>
+      <span class="info">{{show.language}}</span>
+      <span class="info">
+        {{formatDate(show.premiered)}} - {{formatDate(show.ended)}}
+      </span>
+      <span class="info" *ngIf="show.network">{{show.network.name}}</span>
       <div [innerHTML]="show.summary"></div>
+
+      <div class="show-links" *ngIf="show.officialSite || show.url">
+        <a
+          *ngIf="show.officialSite"
+          [href]="show.officialSite"
+          title="Visit official website"
+          alt="Visit official website"
+          ><img src="assets/web.svg"
+        /></a>
+        <a
+          *ngIf="show.url"
+          [href]="show.url"
+          title="Visit TVmaze website"
+          alt="Visit TVmaze website"
+          ><img src="assets/tv.svg"
+        /></a>
+      </div>
     </div>
   </div>
 
-  <ion-grid>
+  <ion-grid *ngIf="cast && cast.length">
     <ion-row>
       <ion-button
         (click)="scrollHorizontal(-400)"
@@ -41,15 +68,11 @@
               />
             </ion-avatar>
             <div class="actor-name">
-              <a [href]="actor.person.url" target="_blank">
-                {{actor.person.name}}
-              </a>
+              <a [href]="actor.person.url">{{actor.person.name}}</a>
             </div>
             <div class="actor-as">
               as <br />
-              <a [href]="actor.character.url" target="_blank">
-                {{actor.character.name}}
-              </a>
+              <a [href]="actor.character.url">{{actor.character.name}}</a>
             </div>
           </div>
         </div>

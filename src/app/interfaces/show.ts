@@ -19,8 +19,8 @@ export interface Show {
     average: number;
   };
   weight: number;
-  network: Country | null;
-  webChannel: Country | null;
+  network: Network | null;
+  webChannel: Network | null;
   dvdCountry: any;
   externals: {
     tvrage: number;
@@ -43,7 +43,7 @@ export interface Show {
   };
 }
 
-export interface Country {
+export interface Network {
   id: number;
   name: string;
   country: {
