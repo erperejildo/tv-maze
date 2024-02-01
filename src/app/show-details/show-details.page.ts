@@ -1,9 +1,16 @@
-import { Component, inject, Input, OnInit } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  inject,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Platform } from '@ionic/angular';
 import { ShowsService } from '../services/shows.service';
 import { Show } from '../interfaces/show';
 import { catchError, tap, throwError } from 'rxjs';
+import { Cast } from '../interfaces/cast';
 
 @Component({
   selector: 'app-show-details',
@@ -12,6 +19,10 @@ import { catchError, tap, throwError } from 'rxjs';
 })
 export class ShowDetailsPage implements OnInit {
   show?: Show;
+  cast?: Cast[];
+  @ViewChild('horizontalScroll') horizontalScroll: any;
+  swiperRef: ElementRef | undefined;
+  imageLoaded: boolean = false;
   private showsService = inject(ShowsService);
   private platform = inject(Platform);
 
@@ -23,6 +34,7 @@ export class ShowDetailsPage implements OnInit {
       if (id) {
         const numericId = parseInt(id, 10);
         this.getShow(numericId);
+        this.getCast(numericId);
       }
     });
   }
@@ -38,11 +50,44 @@ export class ShowDetailsPage implements OnInit {
       .pipe(
         tap((data: Show) => {
           this.show = data;
+          console.log('SHOW: ', data);
         }),
         catchError((error) => {
           return throwError(() => new Error('Error fetching show'));
         })
       )
       .subscribe();
+  }
+
+  getCast(id: number) {
+    this.showsService
+      .getCastById(id)
+      .pipe(
+        tap((data: Cast[]) => {
+          this.cast = data;
+          console.log('CAST: ', data);
+        }),
+        catchError((error) => {
+          return throwError(() => new Error('Error fetching cast'));
+        })
+      )
+      .subscribe();
+  }
+
+  scrollHorizontal(distance: number) {
+    this.horizontalScroll.nativeElement.scrollBy({
+      left: distance,
+      behavior: 'smooth',
+    });
+  }
+
+  handleImageLoad() {
+    this.imageLoaded = true;
+  }
+
+  handleImageError() {
+    // TODO
+    // this.show.image.original = 'path/to/default/image.jpg';
+    this.imageLoaded = true;
   }
 }

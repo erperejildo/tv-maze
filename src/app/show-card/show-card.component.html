@@ -15,8 +15,8 @@
   <ion-card-header>
     <ion-card-title>{{ show.name }}</ion-card-title>
     <ion-card-subtitle>
-      <span *ngFor="let genre of show.genres">
-        {{ genre }}
+      <span *ngFor="let genre of show.genres; let last = last">
+        {{ genre }}<ng-container *ngIf="!last"> -</ng-container>
       </span>
     </ion-card-subtitle>
   </ion-card-header>

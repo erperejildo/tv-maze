@@ -1,12 +1,66 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" *ngIf="show">
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-back-button
         [text]="getBackButtonText()"
         defaultHref="/"
       ></ion-back-button>
+      {{show.name}}
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" *ngIf="show"> testing </ion-content>
+<ion-content [fullscreen]="true" *ngIf="show">
+  <div class="show-container">
+    <div class="show-left">
+      <img src="{{show.image.medium}}" class="original-image" />
+    </div>
+
+    <div class="show-right">
+      <h1 class="show-title">{{show.name}}</h1>
+      <div [innerHTML]="show.summary"></div>
+    </div>
+  </div>
+
+  <ion-grid>
+    <ion-row>
+      <ion-button
+        (click)="scrollHorizontal(-400)"
+        fill="clear"
+        class="cast-arrow"
+      >
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </ion-button>
+      <ion-col class="cast-row">
+        <div class="horizontal-scroll" #horizontalScroll>
+          <div class="actor" *ngFor="let actor of cast">
+            <ion-avatar>
+              <img
+                alt="Silhouette of a person's head"
+                [src]="actor.person.image.medium"
+              />
+            </ion-avatar>
+            <div class="actor-name">
+              <a [href]="actor.person.url" target="_blank">
+                {{actor.person.name}}
+              </a>
+            </div>
+            <div class="actor-as">
+              as <br />
+              <a [href]="actor.character.url" target="_blank">
+                {{actor.character.name}}
+              </a>
+            </div>
+          </div>
+        </div>
+      </ion-col>
+      <ion-button
+        (click)="scrollHorizontal(400)"
+        fill="clear"
+        class="cast-arrow"
+      >
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </ion-button>
+    </ion-row>
+  </ion-grid>
+</ion-content>
