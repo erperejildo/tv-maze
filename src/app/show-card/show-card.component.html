@@ -1,7 +1,7 @@
 <ion-card
   *ngIf="show"
   (click)="showClicked(show.id)"
-  [style.background-image]="'url(' + show.image.medium + ')'"
+  [style.background-image]="'url(' + coverImage() + ')'"
 >
   <div
     *ngIf="show.rating.average"

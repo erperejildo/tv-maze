@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Show } from '../interfaces/show';
+import { Show, ShowSearch } from '../interfaces/show';
 import { Cast } from '../interfaces/cast';
 import { ShowImage } from '../interfaces/show-image';
 
@@ -16,6 +16,11 @@ export class ShowsService {
   getShowsByPage(page: number): Observable<Show[]> {
     const url = `${this.apiUrl}/shows?page=${page}`;
     return this.http.get<Show[]>(url);
+  }
+
+  getShowsBySearch(search: string): Observable<ShowSearch[]> {
+    const url = `${this.apiUrl}/search/shows?q=${search}`;
+    return this.http.get<ShowSearch[]>(url);
   }
 
   getShowDetailsById(id: number): Observable<Show> {

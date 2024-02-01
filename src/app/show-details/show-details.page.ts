@@ -42,7 +42,6 @@ export class ShowDetailsPage implements OnInit {
       .pipe(
         tap((data: Show) => {
           this.show = data;
-          console.log('SHOW: ', data);
         }),
         catchError((error) => {
           return throwError(() => new Error('Error fetching show'));

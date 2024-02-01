@@ -43,6 +43,11 @@ export interface Show {
   };
 }
 
+export interface ShowSearch {
+  score: number;
+  show: Show;
+}
+
 export interface Network {
   id: number;
   name: string;
