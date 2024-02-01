@@ -5,6 +5,14 @@ ion-card {
   flex-direction: column;
   justify-content: flex-end;
   cursor: pointer;
+
+  background-size: 100%;
+  background-position: center;
+  overflow: hidden;
+  transition: background-size 0.3s ease;
+  &:hover {
+    background-size: 120%;
+  }
 }
 
 ion-card-header,
