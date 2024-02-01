@@ -1,16 +1,9 @@
-import {
-  Component,
-  ElementRef,
-  inject,
-  OnInit,
-  ViewChild,
-} from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ModalController, Platform } from '@ionic/angular';
 import { ShowsService } from '../services/shows.service';
 import { Show } from '../interfaces/show';
 import { catchError, tap, throwError } from 'rxjs';
-import { Cast } from '../interfaces/cast';
 import { ImageGalleryComponent } from '../image-gallery/image-gallery.component';
 
 @Component({
@@ -20,9 +13,6 @@ import { ImageGalleryComponent } from '../image-gallery/image-gallery.component'
 })
 export class ShowDetailsPage implements OnInit {
   show?: Show;
-  cast?: Cast[];
-  @ViewChild('horizontalScroll') horizontalScroll: any;
-  imageLoaded: boolean = false;
   private showsService = inject(ShowsService);
   private platform = inject(Platform);
 
@@ -37,7 +27,6 @@ export class ShowDetailsPage implements OnInit {
       if (id) {
         const numericId = parseInt(id, 10);
         this.getShow(numericId);
-        this.getCast(numericId);
       }
     });
   }
@@ -57,21 +46,6 @@ export class ShowDetailsPage implements OnInit {
         }),
         catchError((error) => {
           return throwError(() => new Error('Error fetching show'));
-        })
-      )
-      .subscribe();
-  }
-
-  getCast(id: number) {
-    this.showsService
-      .getCastById(id)
-      .pipe(
-        tap((data: Cast[]) => {
-          this.cast = data;
-          console.log('CAST: ', data);
-        }),
-        catchError((error) => {
-          return throwError(() => new Error('Error fetching cast'));
         })
       )
       .subscribe();
@@ -100,22 +74,5 @@ export class ShowDetailsPage implements OnInit {
 
   padZero(value: number): string {
     return value < 10 ? '0' + value : value.toString();
-  }
-
-  scrollHorizontal(distance: number) {
-    this.horizontalScroll.nativeElement.scrollBy({
-      left: distance,
-      behavior: 'smooth',
-    });
-  }
-
-  handleImageLoad() {
-    this.imageLoaded = true;
-  }
-
-  handleImageError() {
-    // TODO
-    // this.show.image.original = 'path/to/default/image.jpg';
-    this.imageLoaded = true;
   }
 }

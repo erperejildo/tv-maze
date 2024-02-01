@@ -20,18 +20,6 @@
   }
 }
 
-.horizontal-scroll {
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  overflow-y: hidden;
-  padding-bottom: var(--gap-m);
-
-  ion-chip {
-    display: table;
-  }
-}
-
 .info:not(:last-child) {
   margin-right: var(--gap-m);
 }
@@ -44,48 +32,4 @@
   img {
     width: 30px;
   }
-}
-
-ion-row {
-  position: relative;
-}
-
-.cast-arrow {
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  bottom: 0;
-  margin: auto 0;
-
-  &:last-child {
-    right: 0;
-  }
-}
-
-.cast-row {
-  padding-left: 50px;
-  padding-right: 50px;
-}
-
-.actor {
-  text-align: center;
-
-  &:not(:last-child) {
-    margin-right: var(--gap-l);
-  }
-}
-
-.actor-name {
-  margin-top: var(--gap-s);
-}
-
-.actor-as {
-  font-style: italic;
-  font-size: 14px;
-  color: grey;
-}
-
-ion-avatar {
-  width: 150px;
-  height: 150px;
 }

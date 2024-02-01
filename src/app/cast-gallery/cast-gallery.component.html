@@ -1,0 +1,33 @@
+<ion-grid *ngIf="cast && cast.length">
+  <ion-row>
+    <ion-button
+      (click)="scrollHorizontal(-400)"
+      fill="clear"
+      class="cast-arrow"
+    >
+      <ion-icon name="chevron-back-outline"></ion-icon>
+    </ion-button>
+    <ion-col class="cast-row">
+      <div class="horizontal-scroll" #horizontalScroll>
+        <div class="actor" *ngFor="let actor of cast">
+          <ion-avatar>
+            <img
+              alt="{{ actor.person.name }}'s picture"
+              [src]="actor.person.image.medium"
+            />
+          </ion-avatar>
+          <div class="actor-name">
+            <a [href]="actor.person.url">{{ actor.person.name }}</a>
+          </div>
+          <div class="actor-as">
+            as <br />
+            <a [href]="actor.character.url">{{ actor.character.name }}</a>
+          </div>
+        </div>
+      </div>
+    </ion-col>
+    <ion-button (click)="scrollHorizontal(400)" fill="clear" class="cast-arrow">
+      <ion-icon name="chevron-forward-outline"></ion-icon>
+    </ion-button>
+  </ion-row>
+</ion-grid>
