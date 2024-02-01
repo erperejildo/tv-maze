@@ -14,11 +14,6 @@ const routes: Routes = [
         (m) => m.ShowDetailsPageModule
       ),
   },
-  {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full',
-  },
 ];
 
 @NgModule({

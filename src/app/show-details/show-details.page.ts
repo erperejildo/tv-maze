@@ -6,11 +6,12 @@ import {
   ViewChild,
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Platform } from '@ionic/angular';
+import { ModalController, Platform } from '@ionic/angular';
 import { ShowsService } from '../services/shows.service';
 import { Show } from '../interfaces/show';
 import { catchError, tap, throwError } from 'rxjs';
 import { Cast } from '../interfaces/cast';
+import { ImageGalleryComponent } from '../image-gallery/image-gallery.component';
 
 @Component({
   selector: 'app-show-details',
@@ -21,12 +22,14 @@ export class ShowDetailsPage implements OnInit {
   show?: Show;
   cast?: Cast[];
   @ViewChild('horizontalScroll') horizontalScroll: any;
-  swiperRef: ElementRef | undefined;
   imageLoaded: boolean = false;
   private showsService = inject(ShowsService);
   private platform = inject(Platform);
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    private route: ActivatedRoute,
+    private modalController: ModalController
+  ) {}
 
   ngOnInit() {
     this.route.paramMap.subscribe((params) => {
@@ -72,6 +75,18 @@ export class ShowDetailsPage implements OnInit {
         })
       )
       .subscribe();
+  }
+
+  async openGallery() {
+    if (!this.show) return;
+
+    const modal = await this.modalController.create({
+      component: ImageGalleryComponent,
+      componentProps: {
+        showId: this.show.id,
+      },
+    });
+    return await modal.present();
   }
 
   formatDate(dateString: string): string {

@@ -13,7 +13,11 @@
 <ion-content [fullscreen]="true" *ngIf="show">
   <div class="show-container">
     <div class="show-left">
-      <img src="{{show.image.medium}}" class="original-image" />
+      <img
+        src="{{show.image.medium}}"
+        class="show-image"
+        (click)="openGallery()"
+      />
     </div>
 
     <div class="show-right">
@@ -63,7 +67,7 @@
           <div class="actor" *ngFor="let actor of cast">
             <ion-avatar>
               <img
-                alt="Silhouette of a person's head"
+                alt="{{actor.person.name}}'s picture"
                 [src]="actor.person.image.medium"
               />
             </ion-avatar>

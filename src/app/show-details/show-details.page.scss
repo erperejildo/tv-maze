@@ -12,8 +12,12 @@
   flex: 1;
 }
 
-.original-image {
-  max-width: 350px;
+.show-image {
+  max-width: var(--thumbnail-width);
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .horizontal-scroll {

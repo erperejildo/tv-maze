@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Show } from '../interfaces/show';
 import { Cast } from '../interfaces/cast';
+import { ShowImage } from '../interfaces/show-image';
 
 @Injectable({
   providedIn: 'root',
@@ -25,5 +26,10 @@ export class ShowsService {
   getCastById(id: number): Observable<Cast[]> {
     const url = `${this.apiUrl}/shows/${id}/cast`;
     return this.http.get<Cast[]>(url);
+  }
+
+  getShowImagesById(id: number): Observable<ShowImage[]> {
+    const url = `${this.apiUrl}/shows/${id}/images`;
+    return this.http.get<ShowImage[]>(url);
   }
 }
