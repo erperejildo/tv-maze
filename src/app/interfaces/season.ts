@@ -16,7 +16,7 @@ export interface Season {
       code: string;
       timezone: string;
     };
-    officialSite: string;
+    officialSite: string | null;
   };
   webChannel: string | null;
   image: string | null;
