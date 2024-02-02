@@ -10,6 +10,7 @@
   --gap-s: 8px;
   --gap-m: 20px;
   --gap-l: 32px;
+  --info-color: #8ebcf9;
 
   /** primary **/
   --ion-color-primary: #ffc409;
@@ -84,8 +85,7 @@
   --ion-color-light-tint: #f5f6f9;
 }
 
-@media (prefers-color-scheme: light) {
-  // TODO: change it after testing
+@media (prefers-color-scheme: dark) {
   /*
    * Dark Colors
    * -------------------------------------------
@@ -205,7 +205,7 @@
    */
 
   .md body {
-    --ion-background-color: #121212;
+    --ion-background-color: #243040;
     --ion-background-color-rgb: 18, 18, 18;
 
     --ion-text-color: #ffffff;
@@ -235,7 +235,7 @@
 
     --ion-item-background: #1e1e1e;
 
-    --ion-toolbar-background: #1f1f1f;
+    --ion-toolbar-background: #161d27;
 
     --ion-tab-bar-background: #1f1f1f;
 
