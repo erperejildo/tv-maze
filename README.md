@@ -20,6 +20,7 @@ Note: To run the project I used Node v20.10.0. The rest of the versions are in p
 ### TASKS
 
 - "You will use an open TV shows API http://www.tvmaze.com/api":
+
   I have used several APIs provided from TVmaze
 
 - "allows users to view a few lists of TV shows" / "display a few popular TV shows based on their rating and genre":
