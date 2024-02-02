@@ -1,6 +1,7 @@
 ion-card {
-  width: var(--thumbnail-width);
-  height: var(--thumbnail-height);
+  width: 100%;
+  width: calc(var(--thumbnail-width) / 0.8);
+  height: calc(var(--thumbnail-height) / 0.8);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -11,8 +12,14 @@ ion-card {
   background-position: center;
   overflow: hidden;
   transition: background-size 0.3s ease;
+
   &:hover {
     background-size: 120%;
+  }
+
+  @media (min-width: 600px) {
+    width: var(--thumbnail-width);
+    height: var(--thumbnail-height);
   }
 }
 
