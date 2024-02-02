@@ -5,3 +5,8 @@
     cursor: pointer;
   }
 }
+
+ion-spinner {
+  margin: var(--gap-m) auto auto auto;
+  display: block;
+}

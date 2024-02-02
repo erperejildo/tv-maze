@@ -50,6 +50,8 @@
     </ion-toolbar>
   </ion-header>
 
+  <ion-spinner *ngIf="!shows.length"></ion-spinner>
+
   <ion-grid *ngIf="shows">
     <ion-row>
       <ion-col *ngFor="let show of shows">
