@@ -2,16 +2,11 @@
 
 An Ionic/Angular app to display tv shows.
 
-- [App Store (iOS)](https://apps.apple.com/us/app/tic-tac-toe-puzzle-game/id1611729977)
-- [Play Store (Android)](https://play.google.com/store/apps/details?id=dev.flutter.tictactoe)
-
-This game was built using the [`game_template`](https://github.com/flutter/samples/tree/master/game_template)
-that you'll find in [github.com/flutter/samples](https://github.com/flutter/samples).
-
 Note: To run the project I used Node v20.10.0. The rest of the versions are in package.json.
 
 ## Commands
 
+- `npm install`: installs
 - `ionic serve`: runs the project
 - `npm test`: runs tests
 
