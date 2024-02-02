@@ -11,7 +11,6 @@ import { ModalController } from '@ionic/angular';
 })
 export class ImageGalleryComponent implements OnInit {
   @Input() showId?: number;
-
   showImages?: ShowImage[];
   private showsService = inject(ShowsService);
 
@@ -28,7 +27,6 @@ export class ImageGalleryComponent implements OnInit {
       .pipe(
         tap((data: ShowImage[]) => {
           this.showImages = data;
-          console.log(data.length);
         }),
         catchError((error) => {
           return throwError(() => new Error('Error fetching show images'));

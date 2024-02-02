@@ -20,7 +20,7 @@
         }}</ion-col>
         <ion-col class="data-col ion-text-center"
           ><a
-            *ngIf="episode.image"
+            *ngIf="episode.image && episode.image.original"
             [href]="episode.image.original"
             target="_blank"
             >View</a

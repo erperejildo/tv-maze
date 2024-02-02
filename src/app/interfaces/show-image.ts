@@ -3,12 +3,12 @@ export interface ShowImage {
   type: string;
   main: boolean;
   resolutions: {
-    original: {
+    original?: {
       url: string;
       width: number;
       height: number;
     };
-    medium: {
+    medium?: {
       url: string;
       width: number;
       height: number;

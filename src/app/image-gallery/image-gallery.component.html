@@ -17,7 +17,7 @@
   >
     <swiper-slide *ngFor="let showImage of showImages">
       <img
-        [src]="showImage.resolutions.original.url"
+        [src]="showImage.resolutions.original?.url"
         alt="Show image"
         class="show-image"
         #showImage
