@@ -4,7 +4,7 @@ export interface Show {
   name: string;
   type: string;
   language: string;
-  genres: Array<string>;
+  genres: string[];
   status: string;
   runtime: number;
   averageRuntime: number;
@@ -13,7 +13,7 @@ export interface Show {
   officialSite: string;
   schedule: {
     time: string;
-    days: Array<string>;
+    days: string[];
   };
   rating: {
     average: number;

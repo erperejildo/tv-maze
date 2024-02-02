@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { Show, ShowSearch } from '../interfaces/show';
 import { Cast } from '../interfaces/cast';
 import { ShowImage } from '../interfaces/show-image';
+import { Season } from '../interfaces/season';
+import { Episode } from '../interfaces/episode';
 
 @Injectable({
   providedIn: 'root',
@@ -26,6 +28,16 @@ export class ShowsService {
   getShowDetailsById(id: number): Observable<Show> {
     const url = `${this.apiUrl}/shows/${id}`;
     return this.http.get<Show>(url);
+  }
+
+  getShowSeasonsById(id: number): Observable<Season[]> {
+    const url = `${this.apiUrl}/shows/${id}/seasons`;
+    return this.http.get<Season[]>(url);
+  }
+
+  getSeasonEpisodesById(id: number): Observable<Episode[]> {
+    const url = `${this.apiUrl}/seasons/${id}/episodes`;
+    return this.http.get<Episode[]>(url);
   }
 
   getCastById(id: number): Observable<Cast[]> {

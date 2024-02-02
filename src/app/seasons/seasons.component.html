@@ -1,0 +1,32 @@
+<div *ngIf="seasonsWithEpisodes.length" class="seasons-container">
+  <div *ngFor="let season of seasonsWithEpisodes">
+    <h3>Season {{ season.number }}</h3>
+    <ion-grid class="data-row">
+      <ion-row class="header-row">
+        <ion-col class="header-col ion-text-center">Number</ion-col>
+        <ion-col class="header-col">Date</ion-col>
+        <ion-col class="header-col">Name</ion-col>
+        <ion-col class="header-col ion-text-center">Score</ion-col>
+        <ion-col class="header-col ion-text-center">Cover</ion-col>
+      </ion-row>
+      <ion-row *ngFor="let episode of season.episodes">
+        <ion-col class="data-col ion-text-center">{{
+          episode.type == "regular" ? episode.number : "Special"
+        }}</ion-col>
+        <ion-col class="data-col">{{ episode.airdate }}</ion-col>
+        <ion-col class="data-col">{{ episode.name }}</ion-col>
+        <ion-col class="data-col ion-text-center">{{
+          episode.rating.average
+        }}</ion-col>
+        <ion-col class="data-col ion-text-center"
+          ><a
+            *ngIf="episode.image"
+            [href]="episode.image.original"
+            target="_blank"
+            >View</a
+          ></ion-col
+        >
+      </ion-row>
+    </ion-grid>
+  </div>
+</div>
