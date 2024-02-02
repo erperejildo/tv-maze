@@ -12,7 +12,6 @@ describe('ShowDetailsPage', () => {
   let mockActivatedRoute: any;
   let mockModal: any;
   let mockShowsService: jasmine.SpyObj<ShowsService>;
-  let mockPlatform: jasmine.SpyObj<Platform>;
 
   const mockShow: Show = {
     id: 1,
@@ -67,7 +66,6 @@ describe('ShowDetailsPage', () => {
     mockShowsService = jasmine.createSpyObj('ShowsService', [
       'getShowDetailsById',
     ]);
-    mockPlatform = jasmine.createSpyObj('Platform', ['is']);
 
     TestBed.configureTestingModule({
       declarations: [ShowDetailsPage],
@@ -76,7 +74,6 @@ describe('ShowDetailsPage', () => {
         { provide: ActivatedRoute, useValue: mockActivatedRoute },
         { provide: ModalController, useValue: { create: () => mockModal } },
         { provide: ShowsService, useValue: mockShowsService },
-        { provide: Platform, useValue: mockPlatform },
       ],
     }).compileComponents();
   }));

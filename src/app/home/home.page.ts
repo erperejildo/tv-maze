@@ -90,10 +90,13 @@ export class HomePage {
       this.sortRating = !this.sortRating;
 
       return this.shows.sort((a, b) => {
+        const ratingA = a.rating.average !== null ? a.rating.average : 0;
+        const ratingB = b.rating.average !== null ? b.rating.average : 0;
+
         if (this.sortRating) {
-          return b.rating.average - a.rating.average;
+          return ratingB - ratingA;
         } else {
-          return a.rating.average - b.rating.average;
+          return ratingA - ratingB;
         }
       });
     } else {

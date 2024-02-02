@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ModalController, Platform } from '@ionic/angular';
+import { ModalController } from '@ionic/angular';
 import { ShowsService } from '../services/shows.service';
 import { Show } from '../interfaces/show';
 import { catchError, tap, throwError } from 'rxjs';
@@ -14,7 +14,6 @@ import { ImageGalleryComponent } from '../image-gallery/image-gallery.component'
 export class ShowDetailsPage implements OnInit {
   show?: Show;
   private showsService = inject(ShowsService);
-  private platform = inject(Platform);
 
   constructor(
     private route: ActivatedRoute,

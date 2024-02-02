@@ -16,7 +16,7 @@ export interface Show {
     days: string[];
   };
   rating: {
-    average: number;
+    average: number | null;
   };
   weight: number;
   network: Network | null;
@@ -56,5 +56,5 @@ export interface Network {
     code: string;
     timezone: string;
   };
-  officialSite: string;
+  officialSite: string | null;
 }
