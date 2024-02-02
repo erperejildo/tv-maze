@@ -3,7 +3,11 @@ export interface Cast {
     id: number;
     url: string;
     name: string;
-    country: string | null;
+    country: {
+      name: string;
+      code: string;
+      timezone: string;
+    } | null;
     birthday: string | null;
     deathday: string | null;
     gender: string | null;

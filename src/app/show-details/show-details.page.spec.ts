@@ -5,6 +5,7 @@ import { of } from 'rxjs';
 import { Show } from '../interfaces/show';
 import { ShowsService } from '../services/shows.service';
 import { ShowDetailsPage } from './show-details.page';
+import { mockShowsResponse } from '../mocks/responses';
 
 describe('ShowDetailsPage', () => {
   let component: ShowDetailsPage;
@@ -13,46 +14,7 @@ describe('ShowDetailsPage', () => {
   let mockModal: any;
   let mockShowsService: jasmine.SpyObj<ShowsService>;
 
-  const mockShow: Show = {
-    id: 1,
-    name: 'Test Show',
-    url: '',
-    type: '',
-    language: '',
-    genres: [],
-    status: '',
-    runtime: 0,
-    averageRuntime: 0,
-    premiered: '',
-    ended: '',
-    officialSite: '',
-    schedule: {
-      time: '',
-      days: [],
-    },
-    rating: {
-      average: 0,
-    },
-    weight: 0,
-    network: null,
-    webChannel: null,
-    dvdCountry: undefined,
-    externals: {
-      tvrage: 0,
-      thetvdb: 0,
-      imdb: '',
-    },
-    summary: '',
-    updated: 0,
-    _links: {
-      self: {
-        href: '',
-      },
-      previousepisode: {
-        href: '',
-      },
-    },
-  };
+  const mockShow: Show = mockShowsResponse[0];
 
   beforeEach(waitForAsync(() => {
     mockActivatedRoute = {

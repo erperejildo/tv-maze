@@ -3,6 +3,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { Show } from '../interfaces/show';
 import { ShowCardComponent } from './show-card.component';
 import { Router } from '@angular/router';
+import { mockShowsResponse } from '../mocks/responses';
 
 describe('ShowCardComponent', () => {
   let component: ShowCardComponent;
@@ -28,50 +29,7 @@ describe('ShowCardComponent', () => {
   });
 
   it('should navigate to show details when showClicked is called', () => {
-    const show: Show = {
-      id: 123,
-      name: 'Test Show',
-      image: {
-        medium: 'test-image.jpg',
-        original: 'test-image.jpg',
-      },
-      url: '',
-      type: '',
-      language: '',
-      genres: [],
-      status: '',
-      runtime: 0,
-      averageRuntime: 0,
-      premiered: '',
-      ended: '',
-      officialSite: '',
-      schedule: {
-        time: '',
-        days: [],
-      },
-      rating: {
-        average: 0,
-      },
-      weight: 0,
-      network: null,
-      webChannel: null,
-      dvdCountry: undefined,
-      externals: {
-        tvrage: 0,
-        thetvdb: 0,
-        imdb: '',
-      },
-      summary: '',
-      updated: 0,
-      _links: {
-        self: {
-          href: '',
-        },
-        previousepisode: {
-          href: '',
-        },
-      },
-    };
+    const show: Show = mockShowsResponse[0];
     const routerSpy = spyOn(router, 'navigate');
 
     component.show = show;

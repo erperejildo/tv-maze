@@ -19,7 +19,7 @@ export interface Season {
     officialSite: string | null;
   };
   webChannel: string | null;
-  image: string | null;
+  image: { medium: string; original?: string } | null;
   summary: string | null;
   _links: {
     self: {
