@@ -26,6 +26,21 @@
       (ionInput)="searchShows($event)"
     ></ion-searchbar>
   </ion-toolbar>
+  <ion-toolbar class="toolbar-order info">
+    Order by:
+    <span (click)="sortShows('name')"
+      >Name<ion-icon
+        *ngIf="sortName !== undefined"
+        [name]="sortName ? 'arrow-up-outline':'arrow-down-outline'"
+      ></ion-icon>
+    </span>
+    -
+    <span (click)="sortShows('rating')"
+      >Score<ion-icon
+        *ngIf="sortRating !== undefined"
+        [name]="sortRating ? 'arrow-up-outline':'arrow-down-outline'"
+      ></ion-icon></span
+  ></ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">

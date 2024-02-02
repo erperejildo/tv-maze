@@ -22,6 +22,8 @@ export class HomePage {
   filteredShows: any[] = [];
   searchQuery: string = '';
   showSearch: boolean = false;
+  sortName?: boolean;
+  sortRating?: boolean;
   private searchSubscription?: Subscription;
   private searchSubject = new Subject<string>();
 
@@ -80,5 +82,31 @@ export class HomePage {
       });
 
     this.searchSubject.next(searchTerm);
+  }
+
+  sortShows(type: string) {
+    if (type === 'rating') {
+      this.sortName = undefined;
+      this.sortRating = !this.sortRating;
+
+      return this.shows.sort((a, b) => {
+        if (this.sortRating) {
+          return b.rating.average - a.rating.average;
+        } else {
+          return a.rating.average - b.rating.average;
+        }
+      });
+    } else {
+      this.sortRating = undefined;
+      this.sortName = !this.sortName;
+
+      return this.shows.sort((a, b) => {
+        if (this.sortName) {
+          return a.name.localeCompare(b.name);
+        } else {
+          return b.name.localeCompare(a.name);
+        }
+      });
+    }
   }
 }
