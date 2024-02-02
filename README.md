@@ -63,12 +63,15 @@ You can try commenting out the code in `image-gallery.component.scss` to see the
 ### IMAGES
 
 Mobile:
+
 ![Alt text](mobile.png)
 
 Tablet:
+
 ![Alt text](tablet.png)
 
 Desktop:
+
 ![Alt text](desktop.png)
 
 ![Alt text](tests.png)
