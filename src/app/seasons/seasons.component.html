@@ -13,7 +13,7 @@
         <ion-col class="data-col ion-text-center">{{
           episode.type == "regular" ? episode.number : "Special"
         }}</ion-col>
-        <ion-col class="data-col">{{ episode.airdate }}</ion-col>
+        <ion-col class="data-col">{{ formatDate(episode.airdate) }}</ion-col>
         <ion-col class="data-col">{{ episode.name }}</ion-col>
         <ion-col class="data-col ion-text-center">{{
           episode.rating.average

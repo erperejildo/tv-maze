@@ -35,7 +35,7 @@ export class HomePage {
 
   getShows() {
     this.showsService
-      .getShowsByPage(1)
+      .getShowsByPage(1) // getting first page as an example
       .pipe(
         tap((data: Show[]) => {
           this.shows = data;

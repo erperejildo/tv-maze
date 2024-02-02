@@ -1,8 +1,21 @@
+:host {
+  display: block;
+  overflow: auto;
+}
+
 .seasons-container {
   max-width: 1200px;
+  min-width: 500px;
   max-height: 800px;
-  overflow-y: auto;
+  overflow: auto;
   margin: var(--gap-m) auto;
   padding-left: var(--gap-m);
   padding-right: var(--gap-m);
+}
+
+.header-col {
+  font-weight: bold;
+  padding: var(--gap-xs) var(--gap-s);
+  background-color: var(--info-color);
+  color: var(--ion-toolbar-background);
 }

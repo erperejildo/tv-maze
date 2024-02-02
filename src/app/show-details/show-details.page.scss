@@ -1,11 +1,22 @@
 .show-container {
-  display: flex;
   padding: var(--gap-m);
+
+  @media (min-width: 600px) {
+    display: flex;
+  }
 }
 
 .show-left {
-  flex: 0;
-  padding-right: var(--gap-m);
+  @media (min-width: 600px) {
+    flex: 0;
+    padding-right: var(--gap-m);
+  }
+
+  img {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
 }
 
 .show-right {
@@ -14,10 +25,7 @@
 
 .show-image {
   max-width: var(--thumbnail-width);
-
-  &:hover {
-    cursor: pointer;
-  }
+  cursor: pointer;
 }
 
 .info:not(:last-child) {

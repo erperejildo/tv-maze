@@ -61,4 +61,15 @@ export class SeasonsComponent implements OnInit {
       )
       .subscribe();
   }
+
+  formatDate(dateString: string): string {
+    const date = new Date(dateString);
+    return `${this.padZero(date.getDate())}/${this.padZero(
+      date.getMonth() + 1
+    )}/${date.getFullYear()}`;
+  }
+
+  padZero(value: number): string {
+    return value < 10 ? '0' + value : value.toString();
+  }
 }
