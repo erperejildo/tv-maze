@@ -31,11 +31,6 @@ export class ShowDetailsPage implements OnInit {
     });
   }
 
-  getBackButtonText() {
-    const isIos = this.platform.is('ios');
-    return isIos ? 'Inbox' : '';
-  }
-
   getShow(id: number) {
     this.showsService
       .getShowDetailsById(id)
