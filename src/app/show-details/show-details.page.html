@@ -12,7 +12,7 @@
 
 <ion-content [fullscreen]="true" *ngIf="show">
   <div class="show-container">
-    <div class="show-left">
+    <div class="show-left" *ngIf="show.image && show.image.medium">
       <img
         src="{{show.image.medium}}"
         class="show-image"
