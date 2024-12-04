@@ -6,6 +6,8 @@ Note: To run the project I used `Node v20.10.0` and `npm 10.2.3`. The rest of th
 
 [CHECK ONLINE](https://tv-maze-dani.netlify.app).
 
+Added `app-debug.apk` to test on real mobile.
+
 ## Commands
 
 - `npm install`: installs
